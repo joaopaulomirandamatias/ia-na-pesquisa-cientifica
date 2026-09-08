@@ -3451,6 +3451,56 @@ Usos fora da lista: combinados por escrito com o docente, antes.</pre></div>
   </div>
 </section>
 
+
+<section class="slide" id="s99" data-title="Os dois manuais juntos">
+  <div class="inner">
+    <div class="kicker-part rv">Fechamento · último slide<span>método + uso de IA, na mesma pasta</span></div>
+    <h2 class="rv">Como usar os dois manuais juntos: Metodólogo + Orientador</h2>
+    <p class="lead rv">Cada manual tem um agente para o Claude Code. Instalados os dois, eles trabalham na mesma pasta de projeto: o <strong>Metodólogo</strong> decide sobre método; o <strong>Orientador</strong> decide sobre o uso de IA. Os dois compartilham o registro de decisões e o registro de uso, e cada um controla o próprio checklist.</p>
+    <div class="two rv">
+      <div>
+        <div class="code"><div class="code-head">instalação — uma vez, em qualquer ordem</div><pre><span class="k">$</span> git clone https://github.com/joaopaulomirandamatias/metodologia-pesquisa-cientifica.git
+<span class="k">$</span> git clone https://github.com/joaopaulomirandamatias/ia-na-pesquisa-cientifica.git
+<span class="k">$</span> bash metodologia-pesquisa-cientifica/scripts/instalar_skills.sh    <span class="cm"># agente metodologo + 4 skills</span>
+<span class="k">$</span> bash ia-na-pesquisa-cientifica/scripts/instalar_skills.sh          <span class="cm"># agente orientador + 2 skills</span>
+
+<span class="cm"># projeto: qualquer um dos dois cria a estrutura; o outro só acrescenta o que falta</span>
+<span class="k">$</span> python3 metodologia-pesquisa-cientifica/scripts/iniciar_projeto.py minha-pesquisa --tema "…"
+<span class="k">$</span> python3 ia-na-pesquisa-cientifica/scripts/iniciar_projeto.py minha-pesquisa --tema "…"
+<span class="k">$</span> cd minha-pesquisa &amp;&amp; claude</pre></div>
+        <div class="tw"><table><thead><tr><th>Pergunta do aluno</th><th>Quem responde</th></tr></thead><tbody>
+          <tr><td>«Qual método uso? Como formulo a pergunta? Quantas entrevistas? Preciso de CEP? Está na ABNT?»</td><td><span class="pill p-blue">Metodólogo</span></td></tr>
+          <tr><td>«Posso usar o ChatGPT para isto? Como configuro? Preciso declarar? Posso subir estes resumos?»</td><td><span class="pill p-amber">Orientador</span></td></tr>
+          <tr><td>«Registre esta decisão» · «o que já fizemos?»</td><td>Ambos, em <code>DECISOES.md</code> e no próprio checklist</td></tr>
+        </tbody></table></div>
+      </div>
+      <div>
+        <div class="code"><div class="code-head">uma sessão típica, dentro de minha-pesquisa/</div><pre><span class="s">Metodólogo, começar minha pesquisa.</span>
+  → entrevista de decisão: tema → pergunta (tabela vazia) → objetivos → classificação → desenho → amostra
+  → grava 00_projeto/DECISOES_METODO.md e DECISOES.md · monta PROGRESSO_METODOLOGIA.md
+
+<span class="s">Orientador, o que posso delegar à IA na revisão de literatura?</span>
+  → matriz de permissões · configura ferramentas · abre USO_DE_IA.csv · monta PROGRESSO_IA.md
+
+<span class="s">Metodólogo, monte o projeto.</span>              → skill projeto-nbr15287 → 00_projeto/PROJETO.md
+<span class="s">Orientador, prepare a triagem assistida.</span>   → skill triagem-assistida (status preliminar; você decide)
+<span class="s">Metodólogo, confira minhas citações.</span>      → verificar_citacoes.py (NBR 10520:2023 / 6023:2025)
+<span class="s">Orientador, verifique as referências.</span>     → verificar_refs.py (cada DOI na Crossref)
+<span class="s">Metodólogo, simule a banca.</span>               → cinco objeções com resposta · 06_texto/banca.md
+<span class="s">Orientador, gere a declaração de uso de IA.</span> → a partir de USO_DE_IA.csv</pre></div>
+        <div class="tw"><table><thead><tr><th>Arquivo</th><th>Quem escreve</th><th>Para quê</th></tr></thead><tbody>
+          <tr><td class="mono">DECISOES.md</td><td>ambos</td><td>toda decisão numerada e datada, com justificativa</td></tr>
+          <tr><td class="mono">USO_DE_IA.csv</td><td>ambos</td><td>uma linha por uso de IA que influenciou decisão ou texto — inclusive dos próprios agentes</td></tr>
+          <tr><td class="mono">PROGRESSO_METODOLOGIA.md</td><td>Metodólogo</td><td>16 itens de método, marcados só com evidência</td></tr>
+          <tr><td class="mono">PROGRESSO_IA.md</td><td>Orientador</td><td>16 itens de uso de IA, idem</td></tr>
+          <tr><td class="mono">AGENTS.md</td><td>modelo</td><td>as regras que os dois leem ao abrir a pasta</td></tr>
+        </tbody></table></div>
+        <div class="rule-box"><span class="blabel">Regra dos dois</span><p>Nenhum dos agentes decide pelo aluno, inventa dado ou referência, libera coleta sem CEP ou marca item sem evidência — e cada um encaminha ao outro a pergunta que não é da sua alçada. O manual irmão, de Metodologia, está em github.com/joaopaulomirandamatias/metodologia-pesquisa-cientifica.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 </main>
 
 <script>
