@@ -23,6 +23,9 @@ python3 ia-na-pesquisa-cientifica/scripts/iniciar_projeto.py minha-pesquisa --te
 ```
 Depois, no Claude Code dentro de `minha-pesquisa/`: **«Orientador, começar projeto»**.
 
+## Os dois agentes juntos
+O **Orientador** cuida do uso de IA; o **Metodólogo** (repositório [metodologia-pesquisa-cientifica](https://github.com/joaopaulomirandamatias/metodologia-pesquisa-cientifica)) cuida do método. Instalados os dois, trabalham na mesma pasta de projeto, compartilham `DECISOES.md` e `USO_DE_IA.csv` e encaminham um ao outro as perguntas fora da própria alçada.
+
 ## Como citar
 MATIAS, J. P. M. *Uso de IA na pesquisa científica: manual prático.* MirandasTech, v2.5, set. 2026. Licença CC BY 4.0.
 
