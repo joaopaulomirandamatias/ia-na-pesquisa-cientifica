@@ -14,7 +14,7 @@ Manual em formato de slides sobre uso responsável, configurável e auditável d
 | `capturas/` | capturas de tela reais usadas no manual (ASReview LAB, Zotero, Connected Papers, APIs), datadas |
 
 ## Como citar
-MATIAS, J. P. M. *Uso de IA na pesquisa científica: manual prático.* MirandasTech, v2.1, set. 2026. Licença CC BY 4.0.
+MATIAS, J. P. M. *Uso de IA na pesquisa científica: manual prático.* MirandasTech, v2.5, set. 2026. Licença CC BY 4.0.
 
 ## Declaração de uso de IA
 Este material foi escrito com assistência de IA (Claude, Anthropic) na estruturação, redação, scripts e capturas, sob as regras que ele próprio descreve. O autor responde integralmente pelo conteúdo.
