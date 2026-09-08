@@ -398,6 +398,9 @@ body{margin:0}
 .gl dd{margin:1px 0 0;color:var(--ink-2)}
 
 @media (max-width:640px){.gl4{grid-template-columns:minmax(0,1fr)}}
+.menu-head{display:flex;justify-content:space-between;align-items:center;padding:8px 10px 10px;border-bottom:1px solid var(--rule);margin-bottom:6px}
+.menu-head button{font-family:var(--mono);font-size:20px;line-height:1;width:34px;height:34px;border:1px solid var(--rule);border-radius:4px;background:var(--surface);color:var(--ink-2);cursor:pointer}
+.menu-head button:hover{border-color:var(--blueprint);color:var(--blueprint)}
 </style>
 </head>
 <body>
@@ -405,7 +408,7 @@ body{margin:0}
 
 <div class="prog" id="prog"></div>
 <div class="scrim" id="scrim"></div>
-<nav class="menu" id="menu" aria-label="Sumário"></nav>
+<nav class="menu" id="menu" aria-label="Sumário"><div class="menu-head"><span class="brand">MirandasTech</span><button type="button" id="menuclose" aria-label="Fechar sumário">×</button></div><div id="menulist"></div></nav>
 <div class="navbtn"><button class="menubtn" id="menubtn" aria-label="Abrir sumário">☰</button><button id="prev" aria-label="Slide anterior">↑</button><button id="next" aria-label="Próximo slide">↓</button><span class="cnt"><b id="cur">1</b>/<span id="tot">–</span></span></div>
 
 <main id="deck">
@@ -3401,7 +3404,8 @@ Usos fora da lista: combinados por escrito com o docente, antes.</pre></div>
     if (s.classList.contains('cover')) { html += '<div class="grp">Início</div>'; }
     html += '<a href="#' + s.id + '" data-i="' + i + '"><span class="n">' + String(i+1).padStart(2,'0') + '</span><span>' + t + '</span></a>';
   });
-  menu.innerHTML = html;
+  document.getElementById('menulist').innerHTML = html;
+  document.getElementById('menuclose').addEventListener('click', function(){ toggleMenu(false); });
   var links = Array.prototype.slice.call(menu.querySelectorAll('a'));
   function toggleMenu(open){ menu.classList.toggle('open', open); scrim.classList.toggle('on', open); }
   menubtn.addEventListener('click', function(){ toggleMenu(!menu.classList.contains('open')); });
