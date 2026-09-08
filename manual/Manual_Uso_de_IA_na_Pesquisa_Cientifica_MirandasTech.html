@@ -264,7 +264,9 @@ body{margin:0}
 .topbar .where{font-family:var(--mono);font-size:11px;color:var(--ink-3);letter-spacing:.06em;display:flex;align-items:center;gap:12px}
 .topbar .where b{color:var(--ink);font-weight:600}
 .prog{position:fixed;top:0;left:0;height:3px;background:var(--signal);width:0;z-index:41;transition:width .25s ease}
-.navbtn{position:fixed;left:clamp(8px,1.2vw,18px);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:6px;z-index:40;align-items:center}
+.navbtn{position:fixed;left:clamp(8px,1.2vw,18px);top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:6px;z-index:40;align-items:center;opacity:.28;transition:opacity .25s ease}
+.navbtn:hover,.navbtn:focus-within{opacity:1}
+@media (hover:none){.navbtn{opacity:.85}}
 .navbtn .cnt{font-family:var(--mono);font-size:11px;color:var(--ink-3);letter-spacing:.04em;margin-top:2px}
 .navbtn .cnt b{color:var(--ink)}
 .navbtn button,.menubtn{font-family:var(--mono);font-size:13px;width:42px;height:42px;border-radius:4px;border:1px solid var(--rule);background:var(--surface);color:var(--ink);cursor:pointer;box-shadow:var(--shadow);display:inline-flex;align-items:center;justify-content:center}
@@ -347,6 +349,55 @@ body{margin:0}
 .three .shot img{max-height:none}
 @media (max-width:900px){.three{grid-template-columns:1fr}}
 .slide .node{padding:9px 11px;gap:4px}.slide .node .nt{font-size:14px}.slide .node .nd{font-size:12px}
+
+/* ================= celular e tablet ================= */
+@media (max-width:900px){
+  html{scroll-snap-type:none}
+  .slide{height:auto;min-height:0;overflow:visible;padding:26px 16px 30px;scroll-snap-align:none;font-size:15px}
+  .slide .inner{max-height:none;overflow:visible;zoom:1!important}
+  .slide.cover,.slide.divider{min-height:72vh;padding:40px 18px}
+  .cover h1{font-size:clamp(38px,11vw,60px)}
+  .cover .lede{font-size:17px}
+  .cover-meta{gap:14px 24px}
+  .hint{display:none}
+  .slide h2{font-size:clamp(23px,6.4vw,30px)}
+  .slide .lead{font-size:15.5px}
+  .kicker-part span{display:block;margin-left:0;margin-top:2px}
+  .two,.three{grid-template-columns:minmax(0,1fr);gap:14px}
+  .slide{max-width:100vw;overflow-x:hidden}
+  .slide .inner{min-width:0}
+  .two>*,.three>*{min-width:0}
+  .slide .tw{max-height:none}
+  .slide .tw table{min-width:560px;font-size:13px}
+  .slide .shot img{max-height:none}
+  .slide .code pre,.slide .term pre{max-height:none;font-size:11.5px}
+  .slide .refs,.slide .check{max-height:none}
+  .compare{grid-template-columns:minmax(0,1fr)}.compare>div:first-child{border-right:0;border-bottom:1px solid var(--rule)}
+  .dec{grid-template-columns:minmax(0,1fr)}
+  .flow{grid-template-columns:repeat(auto-fit,minmax(140px,1fr))}
+  .sets{height:200px}
+  .navbtn{left:auto;right:10px;top:auto;bottom:10px;transform:none;flex-direction:row;gap:6px;padding:6px;background:color-mix(in srgb,var(--surface) 92%,transparent);border:1px solid var(--rule);border-radius:6px;box-shadow:var(--shadow)}
+  .navbtn button,.menubtn{width:38px;height:38px;box-shadow:none}
+  .navbtn .cnt{margin:0 4px 0 2px}
+  .menu{width:100vw;inset:0 0 0 0}
+  .slide.divider .num{font-size:24vw;right:2vw;bottom:-3vw}
+  .rule-box,.trap,.case,.note{padding:12px 14px}
+}
+@media (max-width:480px){
+  .slide{padding:22px 12px 26px}
+  .plate div,.cover-meta div{width:100%}
+  .bar-row{grid-template-columns:minmax(64px,90px) minmax(0,1fr) 46px;gap:6px}
+  .ui-body{grid-template-columns:1fr}.ui-side{border-right:0;border-bottom:1px solid var(--rule)}
+}
+.gl4{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-top:14px}
+.gl{column-count:1}
+.gl{margin:0;font-family:var(--cond);font-size:12.5px;line-height:1.38;columns:2;column-gap:18px}
+.gl dt{break-inside:avoid}.gl dd{break-inside:avoid}
+@media (max-width:640px){.gl{columns:1}}
+.gl dt{font-weight:600;color:var(--blueprint);margin-top:7px}
+.gl dd{margin:1px 0 0;color:var(--ink-2)}
+
+@media (max-width:640px){.gl4{grid-template-columns:minmax(0,1fr)}}
 </style>
 </head>
 <body>
@@ -367,7 +418,7 @@ body{margin:0}
     <p class="lede rv">Do planejamento à submissão: o que delegar a um modelo, o que manter com o pesquisador, como configurar cada ferramenta e — a parte que quase todo tutorial pula — <strong>como provar depois qual foi qual</strong>.</p>
     <div class="cover-meta rv">
       <div><b>Autor</b><span>João Paulo Miranda Matias</span></div>
-      <div><b>Versão</b><span>2.1 · setembro de 2026</span></div>
+      <div><b>Versão</b><span>2.3 · setembro de 2026</span></div>
       <div><b>Formato</b><span><span id="nslides">59</span> slides</span></div>
       <div><b>Licença</b><span>CC BY 4.0 — cite a fonte</span></div>
     </div>
@@ -393,6 +444,7 @@ body{margin:0}
           <li>A <strong>Parte 8</strong> trata de agentes e automação; a <strong>9</strong>, de escrita, referências e declaração.</li>
           <li>Cada slide tem um botão <em>+ detalhes</em> com a profundidade que não cabe na tela.</li>
           <li class="warn">Políticas e interfaces mudam. Cada slide de norma traz a data da última verificação.</li>
+          <li>Siglas e termos técnicos estão explicados no <strong>glossário</strong>, ao final.</li>
         </ul>
       </div>
     </div>
@@ -3159,7 +3211,7 @@ eventuais imprecisões originadas nas ferramentas.</pre></div>
 
 <section class="slide" id="s44" data-title="Erros típicos">
   <div class="inner">
-    <div class="kicker-part rv">Fechamento<span>1 de 4</span></div>
+    <div class="kicker-part rv">Fechamento<span>1 de 7</span></div>
     <h2 class="rv">Erros típicos — e quem costuma pegá-los</h2>
     <p class="lead rv">Todos ocorrem com IA envolvida; nenhum é pego pela IA reler o próprio texto. A coluna que importa é a última.</p>
     <div class="tw rv"><table><thead><tr><th>Erro</th><th>Como parece</th><th>Como é</th><th style="width:150px">Quem pega</th></tr></thead><tbody>
@@ -3181,7 +3233,7 @@ eventuais imprecisões originadas nas ferramentas.</pre></div>
 
 <section class="slide alt" id="s45" data-title="Checklist de entrega">
   <div class="inner">
-    <div class="kicker-part rv">Fechamento<span>2 de 4</span></div>
+    <div class="kicker-part rv">Fechamento<span>2 de 7</span></div>
     <h2 class="rv">Checklist de entrega</h2>
     <p class="lead rv">Marque conforme concluir. O estado fica salvo neste navegador — não é compartilhado nem enviado a lugar nenhum.</p>
     <div class="check rv" id="checklist">
@@ -3208,7 +3260,7 @@ eventuais imprecisões originadas nas ferramentas.</pre></div>
 
 <section class="slide" id="s46" data-title="Exercícios e sala de aula">
   <div class="inner">
-    <div class="kicker-part rv">Fechamento<span>3 de 4</span></div>
+    <div class="kicker-part rv">Fechamento<span>3 de 7</span></div>
     <h2 class="rv">Exercícios de sala e cláusula para o plano de ensino</h2>
     <p class="lead rv">Três laboratórios curtos e um produto avaliável, desenhados para um encontro de quatro horas com mestrandos.</p>
     <div class="two rv">
@@ -3241,9 +3293,27 @@ Usos fora da lista: combinados por escrito com o docente, antes.</pre></div>
   </div>
 </section>
 
+<section class="slide alt" id="s46g" data-title="Glossário — normas e método">
+  <div class="inner">
+    <div class="kicker-part rv">Fechamento<span>4 de 7</span></div>
+    <h2 class="rv">Glossário — normas e método</h2>
+    <p class="lead rv">Siglas de instituições e normas, e os termos do método de revisão. Tudo que aparece no manual sem ser explicado no próprio slide.</p>
+    <div class="gl4 rv"><div><h4 style="margin-top:0">Siglas de norma e instituições</h4><dl class="gl"><dt>CNPq</dt><dd>Conselho Nacional de Desenvolvimento Científico e Tecnológico; a Portaria 2.664/2026 é sua política de integridade.</dd><dt>CAPES · Qualis</dt><dd>Agência de pós-graduação; Qualis é a classificação de periódicos por área, consultada na Plataforma Sucupira.</dd><dt>LGPD · ANPD</dt><dd>Lei Geral de Proteção de Dados (13.709/2018) e a Autoridade Nacional que a fiscaliza.</dd><dt>ICMJE · WAME · COPE</dt><dd>Comitês internacionais de editores médicos e de ética em publicação; definem autoria e uso de IA em periódicos.</dd><dt>ERA Living Guidelines</dt><dd>Diretrizes «vivas» da Comissão Europeia para IA generativa na pesquisa.</dd><dt>UNESCO</dt><dd>Organização das Nações Unidas para Educação, Ciência e Cultura; publicou guia de IAG para educação e pesquisa.</dd><dt>OSF · PROSPERO</dt><dd>Plataformas de registro público de protocolos (geral e de revisões em saúde).</dd><dt>EQUATOR · PRISMA · CONSORT</dt><dd>Rede e guias de relato: PRISMA 2020 para revisões sistemáticas, PRISMA-ScR para revisões de escopo, CONSORT/TREND para experimentos.</dd><dt>CRediT</dt><dd>Taxonomia de papéis de autoria (concepção, análise, redação…) usada para declarar a contribuição de cada coautor.</dd><dt>SJR · JIF</dt><dd>Indicadores de periódicos: SCImago Journal Rank e Fator de Impacto (Clarivate).</dd></dl></div><div><h4 style="margin-top:0">Método de revisão</h4><dl class="gl"><dt>Revisão sistemática · de escopo</dt><dd>Levantamento reproduzível da literatura com protocolo; a de escopo mapeia o campo, a sistemática responde a uma pergunta.</dd><dt>PICO · PICo · SPIDER · CIMO</dt><dd>Estruturas para formular a pergunta (população, intervenção, comparador, desfecho; contexto, mecanismo…).</dd><dt>Protocolo · emenda</dt><dd>Plano escrito antes da busca; emenda é a mudança datada, justificada e com impacto medido.</dd><dt>String booleana · truncamento</dt><dd>Expressão de busca com AND/OR; o asterisco (agent*) captura flexões — agent, agents, agentic.</dd><dt>Bloco conceitual</dt><dd>Conjunto de sinônimos de um mesmo conceito unidos por OR, combinado a outros blocos por AND.</dd><dt>Recall · precisão</dt><dd>Recall: fração do que existe que a busca recupera; precisão: fração do recuperado que é relevante.</dd><dt>Conjunto-semente (seeds)</dt><dd>Trabalhos sabidamente relevantes usados para medir o recall da busca.</dd><dt>Deduplicação · corpus</dt><dd>Remoção de registros repetidos; corpus é o conjunto de registros que sobra.</dd><dt>Codebook</dt><dd>Documento com definições operacionais, códigos de decisão e de exclusão (E1…E10) usados na triagem e extração.</dd><dt>Triagem · elegibilidade · MAYBE</dt><dd>Decisão por título/resumo e depois por texto completo; MAYBE é a dúvida que exige nota e nova leitura.</dd><dt>Falso positivo · falso negativo</dt><dd>Incluir o que não devia; excluir o que devia entrar — o segundo é o erro mais caro.</dd><dt>κ de Cohen · IC 95% · bootstrap</dt><dd>Medida de concordância entre revisores descontado o acaso; intervalo de confiança; reamostragem para estimá-lo.</dd><dt>Snowballing (backward/forward)</dt><dd>Buscar nas referências citadas (para trás) e nos citantes (para a frente) dos incluídos; para pelo critério de Wohlin.</dd><dt>Extração · matriz de evidências</dt><dd>Codificação do que cada estudo traz, com página e trecho; a tabela que reúne isso.</dd><dt>Dupla codificação</dt><dd>Segundo humano codifica uma amostra para medir consistência.</dd><dt>Bibliometria · cocitação · coocorrência</dt><dd>Análise quantitativa da literatura; mapas de quem é citado junto e de termos que aparecem juntos (VOSviewer, Bibliometrix).</dd></dl></div></div>
+  </div>
+</section>
+
+<section class="slide alt" id="s46h" data-title="Glossário — dados, acesso e inteligência artificial">
+  <div class="inner">
+    <div class="kicker-part rv">Fechamento<span>5 de 7</span></div>
+    <h2 class="rv">Glossário — dados, acesso e inteligência artificial</h2>
+    <p class="lead rv">Identificadores, formatos, acesso aberto, e o vocabulário de modelos e agentes.</p>
+    <div class="gl4 rv"><div><h4 style="margin-top:0">Dados, acesso e identificadores</h4><dl class="gl"><dt>DOI · ISSN · ISBN</dt><dd>Identificador persistente de documento; de periódico; de livro. DOI resolve em doi.org e na Crossref.</dd><dt>Crossref · OpenAlex · Semantic Scholar</dt><dd>Registro oficial de DOIs; índice aberto de ~250 M de obras; índice acadêmico com API — os três têm API gratuita.</dd><dt>API</dt><dd>Interface de programação: uma URL que devolve dados (JSON) para um script consultar sem navegador.</dd><dt>Acesso aberto: gold · green · bronze · hybrid</dt><dd>Aberto no periódico; em repositório; na página do editor sem licença; artigo aberto em periódico fechado.</dd><dt>Unpaywall · proxy institucional</dt><dd>Serviço que localiza versões abertas; acesso via login da universidade (CAPES/USP).</dd><dt>RIS · BibTeX · CSV</dt><dd>Formatos de exportação bibliográfica (Rayyan, Zotero, LaTeX) e de tabela.</dd><dt>SHA-256 · hash</dt><dd>Impressão digital de um arquivo: prova que o arquivo analisado é o exportado.</dd><dt>Anti-bot (Cloudflare) · HTTP 403</dt><dd>Proteção que bloqueia scripts; 403 = acesso negado, mesmo em conteúdo aberto.</dd><dt>Git · commit · pull request · repositório</dt><dd>Controle de versão: cada mudança registrada com autor e data; revisão de mudanças; a pasta versionada.</dd></dl></div><div><h4 style="margin-top:0">Inteligência artificial e agentes</h4><dl class="gl"><dt>IAG · LLM</dt><dd>IA generativa; modelo de linguagem de grande porte (ChatGPT, Claude, Gemini) que prevê texto.</dd><dt>Prompt · contexto · token</dt><dd>Instrução dada ao modelo; o que ele «vê» na conversa; unidade de texto que limita o contexto.</dd><dt>Alucinação</dt><dd>Saída fluente e falsa — referência inventada, número inexistente — produzida como comportamento normal.</dd><dt>Grounding · RAG</dt><dd>Responder a partir de fontes recuperadas (índice ou seus arquivos) em vez de só da memória do modelo.</dd><dt>Estocástico · versão do modelo</dt><dd>A mesma entrada dá saídas diferentes; versões mudam sem aviso — por isso a saída se guarda como dado.</dd><dt>Aprendizado ativo · prior · regra de parada</dt><dd>Modelo que aprende com suas decisões e reordena a fila (ASReview); rótulos iniciais; critério para parar de triar.</dd><dt>Agente · subagente</dt><dd>IA que executa ações (ler arquivos, rodar comandos); tarefa delegada a outro agente em paralelo.</dd><dt>AGENTS.md / CLAUDE.md</dt><dd>Arquivo de regras que o agente lê ao abrir o repositório.</dd><dt>Skill · plugin · projeto</dt><dd>Procedimento empacotado (SKILL.md); pacote instalável de skills/servidores; espaço com instruções e arquivos permanentes.</dd><dt>MCP</dt><dd>Model Context Protocol: padrão para dar ao agente acesso a ferramentas e bases externas.</dd><dt>Prompt injection</dt><dd>Texto dentro de uma página ou arquivo que tenta dar ordens ao agente; tratar como dado, nunca como instrução.</dd><dt>Modelo local · Ollama</dt><dd>LLM rodando no próprio computador; nada sai da máquina.</dd><dt>CAQDAS</dt><dd>Software de análise qualitativa assistida (Atlas.ti, MAXQDA, NVivo), alguns com IA sob contrato.</dd><dt>Red team</dt><dd>Teste em que se tenta fazer a skill ou o sistema desobedecer às próprias regras.</dd></dl></div></div>
+  </div>
+</section>
+
 <section class="slide alt" id="s47" data-title="Referências e repositório">
   <div class="inner">
-    <div class="kicker-part rv">Fechamento<span>4 de 5 · verificação: 08/09/2026</span></div>
+    <div class="kicker-part rv">Fechamento<span>6 de 7 · verificação: 08/09/2026</span></div>
     <h2 class="rv">Referências — normas e diretrizes</h2>
     <div class="two rv">
       <div>
@@ -3275,7 +3345,7 @@ Usos fora da lista: combinados por escrito com o docente, antes.</pre></div>
 
 <section class="slide" id="s48" data-title="Referências: método, ferramentas e repositório">
   <div class="inner">
-    <div class="kicker-part rv">Fechamento<span>5 de 5</span></div>
+    <div class="kicker-part rv">Fechamento<span>7 de 7</span></div>
     <h2 class="rv">Referências — método, evidência, ferramentas e repositório</h2>
     <div class="two rv">
       <div>
@@ -3363,6 +3433,7 @@ Usos fora da lista: combinados por escrito com o docente, antes.</pre></div>
 
   /* ajuste de escala: cada slide cabe na tela (como num programa de apresentação) */
   function fitAll(){
+    if (window.innerWidth <= 900) { slides.forEach(function(s){ var i = s.querySelector('.inner'); if (i) i.style.zoom = ''; s.classList.add('fit'); }); return; }
     var avail = window.innerHeight - 52;
     slides.forEach(function(s){
       var inner = s.querySelector('.inner'); if (!inner || s.classList.contains('divider') || s.classList.contains('cover')) return;
