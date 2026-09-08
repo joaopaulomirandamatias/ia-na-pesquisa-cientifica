@@ -2,7 +2,7 @@
 
 Manual em formato de slides sobre uso responsável, configurável e auditável de IA generativa em pesquisa: regras vigentes (CNPq 2026, LGPD/ANPD, ICMJE, ERA), permissões por tarefa, configuração das ferramentas, registro de uso, trabalho em equipe, e o passo a passo por fase — pergunta, método, protocolo, busca, triagem (Rayyan, ASReview), acervo (Zotero), leitura, extração, agentes (repositório, AGENTS.md, skills, MCP), escrita, referências e declaração.
 
-**Manual on-line (slides):** https://claude.ai/code/artifact/d1d9e2c4-5ac6-4ff2-b861-3d8079015d23 · **HTML autônomo:** `manual/Manual_Uso_de_IA_na_Pesquisa_Cientifica_MirandasTech.html` · **PDF:** `manual/Manual_Uso_de_IA_na_Pesquisa_Cientifica_MirandasTech.pdf`
+**Manual on-line:** https://manual-ia-pesquisa-production.up.railway.app/ · **PDF:** https://manual-ia-pesquisa-production.up.railway.app/manual.pdf · **HTML autônomo:** `manual/Manual_Uso_de_IA_na_Pesquisa_Cientifica_MirandasTech.html` · **PDF:** `manual/Manual_Uso_de_IA_na_Pesquisa_Cientifica_MirandasTech.pdf`
 
 ## Conteúdo do repositório
 | Pasta | O que há |
