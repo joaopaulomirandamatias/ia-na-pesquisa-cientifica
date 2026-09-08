@@ -210,9 +210,9 @@ td.mono{font-family:var(--mono);font-size:12.5px}
 /* ================= motor de slides ================= */
 html{scroll-snap-type:y proximity;scroll-behavior:smooth}
 body{margin:0}
-.slide{height:100vh;min-height:100vh;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:center;padding:28px clamp(64px,6vw,96px) 34px;font-size:15.5px;overflow:hidden;position:relative;border-bottom:1px solid var(--rule-2);background:var(--paper)}
+.slide{height:100vh;min-height:100vh;scroll-snap-align:start;display:flex;flex-direction:column;justify-content:flex-start;padding:26px clamp(64px,6vw,96px) 26px;font-size:15.5px;overflow:hidden;position:relative;border-bottom:1px solid var(--rule-2);background:var(--paper)}
 .slide.alt{background:var(--surface-2)}
-.slide .inner{max-width:none;width:100%;margin:0 auto;max-height:calc(100vh - 62px);overflow:auto;scrollbar-width:thin}
+.slide .inner{max-width:none;width:100%;margin:0;max-height:calc(100vh - 52px);overflow:auto;scrollbar-width:thin}
 .slide.fit .inner{overflow:visible}
 .slide h2{max-width:none;font-size:clamp(24px,3.2vw,38px);margin-top:6px}
 .slide .lead{font-size:clamp(15.5px,1.35vw,18px);color:var(--ink-2);max-width:none;margin:10px 0 0;line-height:1.5}
@@ -238,6 +238,7 @@ body{margin:0}
 
 /* capa */
 .slide.cover{justify-content:center;background:var(--paper)}
+.slide.divider{justify-content:center}
 .brand{font-family:var(--cond);font-weight:700;letter-spacing:.14em;text-transform:uppercase;font-size:13px;color:var(--blueprint);display:inline-flex;align-items:center;gap:10px}
 .brand::before{content:"";width:22px;height:2px;background:var(--signal)}
 .cover h1{font-family:var(--cond);font-weight:700;font-size:clamp(42px,7.2vw,88px);line-height:.98;letter-spacing:-.02em;margin:22px 0 0;text-wrap:balance;max-width:none}
@@ -3362,7 +3363,7 @@ Usos fora da lista: combinados por escrito com o docente, antes.</pre></div>
 
   /* ajuste de escala: cada slide cabe na tela (como num programa de apresentação) */
   function fitAll(){
-    var avail = window.innerHeight - 62;
+    var avail = window.innerHeight - 52;
     slides.forEach(function(s){
       var inner = s.querySelector('.inner'); if (!inner || s.classList.contains('divider') || s.classList.contains('cover')) return;
       inner.style.zoom = '1'; s.classList.remove('fit');
