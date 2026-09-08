@@ -12,6 +12,10 @@ file_server
 # atalhos
 redir /pdf /manual.pdf 302
 redir /manual / 302
+redir /zotero /zotero/ 301
+redir /zotero/pdf /zotero/manual.pdf 302
+redir /metodologia /metodologia/ 301
+redir /metodologia/pdf /metodologia/manual.pdf 302
 
 header {
 	Cache-Control "public, max-age=300"
