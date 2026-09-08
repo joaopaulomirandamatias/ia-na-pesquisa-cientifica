@@ -18,3 +18,6 @@ MATIAS, J. P. M. *Uso de IA na pesquisa científica: manual prático.* MirandasT
 
 ## Declaração de uso de IA
 Este material foi escrito com assistência de IA (Claude, Anthropic) na estruturação, redação, scripts e capturas, sob as regras que ele próprio descreve. O autor responde integralmente pelo conteúdo.
+
+## Deploy (Railway)
+`Dockerfile` + `Caddyfile` servem `site/` (o deck como `index.html` e o PDF em `/manual.pdf`). Para atualizar: regenerar o deck, copiar para `site/`, `git push` — o Railway reconstrói a cada push.
