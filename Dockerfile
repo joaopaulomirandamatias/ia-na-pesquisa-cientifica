@@ -1,10 +1,13 @@
 # Site do manual de IA + manuais irmãos servidos por caminho (/zotero, /metodologia, /gemini-notebook, /plugin), buscados no GitHub no build
 FROM alpine/git:latest AS irmaos
 WORKDIR /src
+RUN apk add --no-cache curl unzip
 RUN git clone --depth 1 https://github.com/joaopaulomirandamatias/zotero-pesquisa-cientifica.git zotero \
  && git clone --depth 1 https://github.com/joaopaulomirandamatias/metodologia-pesquisa-cientifica.git metodologia \
  && git clone --depth 1 https://github.com/joaopaulomirandamatias/gemini-notebook-pesquisa-cientifica.git gemini \
- && git clone --depth 1 https://github.com/joaopaulomirandamatias/pesquisa-mirandastech.git plugin
+ && git clone --depth 1 https://github.com/joaopaulomirandamatias/pesquisa-mirandastech.git plugin \
+ && curl -fsSL -o /tmp/ma.zip https://github.com/joaopaulomirandamatias/pesquisa-mirandastech/releases/download/manual-assets/manual-assets.zip \
+ && unzip -q /tmp/ma.zip -d plugin/manual
 
 FROM caddy:2-alpine
 COPY Caddyfile /etc/caddy/Caddyfile
