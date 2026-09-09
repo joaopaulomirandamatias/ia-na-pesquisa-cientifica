@@ -18,6 +18,8 @@ redir /metodologia /metodologia/ 301
 redir /metodologia/pdf /metodologia/manual.pdf 302
 redir /gemini-notebook /gemini-notebook/ 301
 redir /gemini-notebook/pdf /gemini-notebook/manual.pdf 302
+redir /plugin /plugin/ 301
+redir /plugin/pdf /plugin/manual.pdf 302
 
 header {
 	Cache-Control "public, max-age=300"
