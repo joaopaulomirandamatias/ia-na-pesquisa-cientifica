@@ -20,6 +20,8 @@ redir /gemini-notebook /gemini-notebook/ 301
 redir /gemini-notebook/pdf /gemini-notebook/manual.pdf 302
 redir /plugin /plugin/ 301
 redir /plugin/pdf /plugin/manual.pdf 302
+redir /prisma /prisma/ 301
+redir /prisma/pdf /prisma/manual.pdf 302
 
 header {
 	Cache-Control "public, max-age=300"
