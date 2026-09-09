@@ -24,6 +24,8 @@ redir /prisma /prisma/ 301
 redir /prisma/pdf /prisma/manual.pdf 302
 redir /busca /busca/ 301
 redir /busca/pdf /busca/manual.pdf 302
+redir /latex /latex/ 301
+redir /latex/pdf /latex/manual.pdf 302
 
 header {
 	Cache-Control "public, max-age=300"
