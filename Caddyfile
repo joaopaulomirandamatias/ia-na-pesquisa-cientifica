@@ -40,6 +40,7 @@ redir /orientador /orientador/ 301
 redir /orientador/pdf /orientador/manual.pdf 302
 redir /professor /professor/ 301
 redir /professor/pdf /professor/manual.pdf 302
+redir /lab /lab/ 301
 redir /submissao /submissao/ 301
 redir /submissao/pdf /submissao/manual.pdf 302
 
