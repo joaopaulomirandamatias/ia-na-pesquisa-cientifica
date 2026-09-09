@@ -28,6 +28,18 @@ redir /latex /latex/ 301
 redir /latex/pdf /latex/manual.pdf 302
 redir /git /git/ 301
 redir /git/pdf /git/manual.pdf 302
+redir /dados /dados/ 301
+redir /dados/pdf /dados/manual.pdf 302
+redir /bibliometria /bibliometria/ 301
+redir /bibliometria/pdf /bibliometria/manual.pdf 302
+redir /cienciaaberta /cienciaaberta/ 301
+redir /cienciaaberta/pdf /cienciaaberta/manual.pdf 302
+redir /defesa /defesa/ 301
+redir /defesa/pdf /defesa/manual.pdf 302
+redir /orientador /orientador/ 301
+redir /orientador/pdf /orientador/manual.pdf 302
+redir /professor /professor/ 301
+redir /professor/pdf /professor/manual.pdf 302
 
 header {
 	Cache-Control "public, max-age=300"

@@ -1,4 +1,4 @@
-# Site do manual de IA + manuais irmãos servidos por caminho (/zotero, /metodologia, /gemini-notebook, /plugin, /prisma, /busca, /latex, /git), buscados no GitHub no build
+# Site do manual de IA + manuais irmãos servidos por caminho (/zotero, /metodologia, /gemini-notebook, /plugin, /prisma, /busca, /latex, /git, /dados, /bibliometria, /cienciaaberta, /defesa, /orientador, /professor), buscados no GitHub no build
 FROM alpine/git:latest AS irmaos
 WORKDIR /src
 RUN apk add --no-cache curl unzip
@@ -10,6 +10,12 @@ RUN git clone --depth 1 https://github.com/joaopaulomirandamatias/zotero-pesquis
  && git clone --depth 1 https://github.com/joaopaulomirandamatias/busca-bases-pesquisa-cientifica.git busca \
  && git clone --depth 1 https://github.com/joaopaulomirandamatias/latex-overleaf-abntex2-pesquisa-cientifica.git latex \
  && git clone --depth 1 https://github.com/joaopaulomirandamatias/git-github-pesquisa-cientifica.git gitman \
+ && git clone --depth 1 https://github.com/joaopaulomirandamatias/analise-de-dados-pesquisa-cientifica.git dados \
+ && git clone --depth 1 https://github.com/joaopaulomirandamatias/bibliometria-pesquisa-cientifica.git bibliometria \
+ && git clone --depth 1 https://github.com/joaopaulomirandamatias/ciencia-aberta-pesquisa-cientifica.git cienciaaberta \
+ && git clone --depth 1 https://github.com/joaopaulomirandamatias/defesa-qualificacao-pesquisa-cientifica.git defesa \
+ && git clone --depth 1 https://github.com/joaopaulomirandamatias/manual-do-orientador-pesquisa-cientifica.git orientador \
+ && git clone --depth 1 https://github.com/joaopaulomirandamatias/manual-do-professor-pesquisa-cientifica.git professor \
  && curl -fsSL -o /tmp/ma.zip https://github.com/joaopaulomirandamatias/pesquisa-mirandastech/releases/download/manual-assets/manual-assets.zip \
  && unzip -q /tmp/ma.zip -d plugin/manual
 
@@ -34,6 +40,18 @@ COPY --from=irmaos /src/latex/site/ /srv/latex/
 COPY --from=irmaos /src/latex/capturas/ /srv/latex/capturas/
 COPY --from=irmaos /src/gitman/site/ /srv/git/
 COPY --from=irmaos /src/gitman/capturas/ /srv/git/capturas/
+COPY --from=irmaos /src/dados/site/ /srv/dados/
+COPY --from=irmaos /src/dados/capturas/ /srv/dados/capturas/
+COPY --from=irmaos /src/bibliometria/site/ /srv/bibliometria/
+COPY --from=irmaos /src/bibliometria/capturas/ /srv/bibliometria/capturas/
+COPY --from=irmaos /src/cienciaaberta/site/ /srv/cienciaaberta/
+COPY --from=irmaos /src/cienciaaberta/capturas/ /srv/cienciaaberta/capturas/
+COPY --from=irmaos /src/defesa/site/ /srv/defesa/
+COPY --from=irmaos /src/defesa/capturas/ /srv/defesa/capturas/
+COPY --from=irmaos /src/orientador/site/ /srv/orientador/
+COPY --from=irmaos /src/orientador/capturas/ /srv/orientador/capturas/
+COPY --from=irmaos /src/professor/site/ /srv/professor/
+COPY --from=irmaos /src/professor/capturas/ /srv/professor/capturas/
 EXPOSE 8080
 ENV PORT=8080
 CMD ["caddy", "run", "--config", "/etc/caddy/Caddyfile", "--adapter", "caddyfile"]
