@@ -1,4 +1,4 @@
-# Site do manual de IA + manuais irmãos servidos por caminho (/zotero, /metodologia, /gemini-notebook, /plugin, /prisma, /busca, /latex, /git, /dados, /bibliometria, /cienciaaberta, /defesa, /orientador, /professor), buscados no GitHub no build
+# Site do manual de IA + manuais irmãos servidos por caminho (/zotero, /metodologia, /gemini-notebook, /plugin, /prisma, /busca, /latex, /git, /dados, /bibliometria, /cienciaaberta, /defesa, /orientador, /professor, /submissao), buscados no GitHub no build
 FROM alpine/git:latest AS irmaos
 WORKDIR /src
 RUN apk add --no-cache curl unzip
@@ -16,6 +16,7 @@ RUN git clone --depth 1 https://github.com/joaopaulomirandamatias/zotero-pesquis
  && git clone --depth 1 https://github.com/joaopaulomirandamatias/defesa-qualificacao-pesquisa-cientifica.git defesa \
  && git clone --depth 1 https://github.com/joaopaulomirandamatias/manual-do-orientador-pesquisa-cientifica.git orientador \
  && git clone --depth 1 https://github.com/joaopaulomirandamatias/manual-do-professor-pesquisa-cientifica.git professor \
+ && git clone --depth 1 https://github.com/joaopaulomirandamatias/submissao-orcid-lattes-pesquisa-cientifica.git submissao \
  && curl -fsSL -o /tmp/ma.zip https://github.com/joaopaulomirandamatias/pesquisa-mirandastech/releases/download/manual-assets/manual-assets.zip \
  && unzip -q /tmp/ma.zip -d plugin/manual
 
@@ -52,6 +53,8 @@ COPY --from=irmaos /src/orientador/site/ /srv/orientador/
 COPY --from=irmaos /src/orientador/capturas/ /srv/orientador/capturas/
 COPY --from=irmaos /src/professor/site/ /srv/professor/
 COPY --from=irmaos /src/professor/capturas/ /srv/professor/capturas/
+COPY --from=irmaos /src/submissao/site/ /srv/submissao/
+COPY --from=irmaos /src/submissao/capturas/ /srv/submissao/capturas/
 EXPOSE 8080
 ENV PORT=8080
 CMD ["caddy", "run", "--config", "/etc/caddy/Caddyfile", "--adapter", "caddyfile"]
