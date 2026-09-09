@@ -1,4 +1,4 @@
-# Site do manual de IA + manuais irmãos servidos por caminho (/zotero, /metodologia, /gemini-notebook, /plugin, /prisma), buscados no GitHub no build
+# Site do manual de IA + manuais irmãos servidos por caminho (/zotero, /metodologia, /gemini-notebook, /plugin, /prisma, /busca), buscados no GitHub no build
 FROM alpine/git:latest AS irmaos
 WORKDIR /src
 RUN apk add --no-cache curl unzip
@@ -7,6 +7,7 @@ RUN git clone --depth 1 https://github.com/joaopaulomirandamatias/zotero-pesquis
  && git clone --depth 1 https://github.com/joaopaulomirandamatias/gemini-notebook-pesquisa-cientifica.git gemini \
  && git clone --depth 1 https://github.com/joaopaulomirandamatias/pesquisa-mirandastech.git plugin \
  && git clone --depth 1 https://github.com/joaopaulomirandamatias/revisao-sistematica-pesquisa-cientifica.git prisma \
+ && git clone --depth 1 https://github.com/joaopaulomirandamatias/busca-bases-pesquisa-cientifica.git busca \
  && curl -fsSL -o /tmp/ma.zip https://github.com/joaopaulomirandamatias/pesquisa-mirandastech/releases/download/manual-assets/manual-assets.zip \
  && unzip -q /tmp/ma.zip -d plugin/manual
 
@@ -25,6 +26,8 @@ COPY --from=irmaos /src/plugin/manual/site/ /srv/plugin/
 COPY --from=irmaos /src/plugin/manual/capturas/ /srv/plugin/capturas/
 COPY --from=irmaos /src/prisma/site/ /srv/prisma/
 COPY --from=irmaos /src/prisma/capturas/ /srv/prisma/capturas/
+COPY --from=irmaos /src/busca/site/ /srv/busca/
+COPY --from=irmaos /src/busca/capturas/ /srv/busca/capturas/
 EXPOSE 8080
 ENV PORT=8080
 CMD ["caddy", "run", "--config", "/etc/caddy/Caddyfile", "--adapter", "caddyfile"]
