@@ -366,20 +366,13 @@ window.Lab=(function(){
     x.font='500 58px "IBM Plex Mono", ui-monospace, monospace';
     x.textAlign='left';x.textBaseline='middle';
     x.fillStyle=t.css;
-    spaced(x,'TRILHA 0'+t.n+'   '+t.name.toUpperCase(),c.width/6,64,10);
+    var txt='TRILHA 0'+t.n+'   '+t.name.toUpperCase(),sp=10,tot=0;
+    txt.split('').forEach(function(ch){tot+=x.measureText(ch).width+sp});
+    tot-=sp;
+    spaced(x,txt,90+tot/2,64,sp);
     return c;
   }
 
-  /* ---------- rótulo da trilha ---------- */
-  function trackLabel(t){
-    var c=document.createElement('canvas');c.width=760;c.height=110;
-    var x=c.getContext('2d');
-    x.font='500 34px "IBM Plex Mono", monospace';x.fillStyle=t.css;x.globalAlpha=.9;
-    x.fillText('TRILHA 0'+t.n,4,42);
-    x.font='600 44px "IBM Plex Sans Condensed", sans-serif';x.fillStyle='rgba(233,238,245,.72)';
-    x.fillText(t.name.toUpperCase(),4,92);
-    return c;
-  }
   /* ---------- painel holográfico (a ficha dentro da cena) ---------- */
   function buildPanel(){
     var c=document.createElement('canvas');c.width=1024;c.height=600;
